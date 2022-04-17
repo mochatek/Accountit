@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato';
+    background-color: hsl(300, 10%, 95%);
+}
+
+#root {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0px 2px 8px 1px lightgrey;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+}
+
+.line-2 > * {
+    margin: 0 auto;
+}
+
+.col-2 {
+    border: 1px solid lightgrey;
+    border-radius: 0.2rem;
+    margin: 0.5rem 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    box-shadow: inset 0px 2px 8px 1px lightgrey;
+}
+
+.col-2 > div {
+    margin: 1rem 0;
+}
+
+.col-2 > div:nth-child(1) {
+    border-right: 2px solid lightgrey;
+}
+
+.expense {
+    color: red;
+}
+
+.income {
+    color:green;
+}
+
+.bdr-b {
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid lightgrey;
+}
+
+ul {
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+}
+
+li {
+    border-radius: 0.2rem;
+    padding: 0.3rem 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 2px 8px 1px lightgrey;
+}
+
+li .deleteBtn {
+    position: absolute;
+    left: -1.9rem;
+    line-height: 0.5rem;
+    height: 100%;
+    top: 0;
+    padding: 0.5rem;
+    background-color: hsl(0, 95%, 75%);
+    opacity: 0;
+    color:white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+li:hover .deleteBtn {
+    opacity: 1;
+}
+
+.deleteBtn:hover {
+    background-color: red;
+}
+
+li.expense {
+    color: inherit;
+    border-right: 5px solid red;
+}
+
+li.income {
+    color: inherit;
+    border-right: 5px solid green;
+}
+
+form > div {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+form label {
+    font-weight: bold;
+    font-size: smaller;
+}
+
+form input, button {
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid lightgrey;
+    outline: none;
+}
+
+button {
+    background-color: hsl(250, 40%, 55%);
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: hsl(250, 40%, 25%);
+}
+
+@media (max-width: 640px) {
+    #root {
+        width: 75vw
+    }
+}
