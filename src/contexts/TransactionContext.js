@@ -1,18 +1,29 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+
+const initialState = [];
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TXN":
+      return [...state, action.payload];
+    case "DEL_TXN":
+      return state.filter((transaction) => transaction.id !== action.payload);
+    default:
+      return state;
+  }
+}
 
 export const TransactionContext = createContext();
 
 export function TransactionProvider(props) {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, dispatch] = useReducer(reducer, initialState);
 
   function addTransaction(newTransaction) {
-    setTransactions([...transactions, newTransaction]);
+    dispatch({ type: "ADD_TXN", payload: newTransaction });
   }
 
   function deleteTransaction(id) {
-    setTransactions(
-      transactions.filter((transaction) => transaction.id !== id)
-    );
+    dispatch({ type: "DEL_TXN", payload: id });
   }
 
   return (

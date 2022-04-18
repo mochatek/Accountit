@@ -65,6 +65,14 @@ body {
     border-bottom: 2px solid lightgrey;
 }
 
+.info {
+    color: hsl(250, 40%, 55%);
+    background-color: hsla(250, 40%, 55%, 0.1);
+    padding: 0.5rem 0;
+    font-size: small;
+    text-align: center;
+}
+
 ul {
     padding-left: 0;
     margin-left: 0;
@@ -107,12 +115,12 @@ li:hover .deleteBtn {
 
 li.expense {
     color: inherit;
-    border-right: 5px solid red;
+    border-right: 0.4rem solid red;
 }
 
 li.income {
     color: inherit;
-    border-right: 5px solid green;
+    border-right: 0.4rem solid green;
 }
 
 form > div {

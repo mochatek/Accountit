@@ -10,11 +10,15 @@ function History() {
       <header>
         <h5 className="bdr-b">History</h5>
       </header>
-      <ul>
-        {transactions.map((transaction) => (
-          <Transaction key={transaction.id} {...transaction} />
-        ))}
-      </ul>
+      {transactions.length ? (
+        <ul>
+          {transactions.map((transaction) => (
+            <Transaction key={transaction.id} {...transaction} />
+          ))}
+        </ul>
+      ) : (
+        <p className="info">No transactions yet!</p>
+      )}
     </article>
   );
 }
