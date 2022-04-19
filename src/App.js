@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import History from "./components/History";
 import NewTransaction from "./components/NewTransaction";
-import ExpenseChart from "./components/ExpenseChart";
+import AccountsChart from "./components/AccountsChart";
 import { TransactionProvider } from "./contexts/TransactionContext";
 import { Fragment } from "react";
 import "./App.css";
@@ -19,7 +19,7 @@ function App() {
             <NewTransaction />
           </div>
           <div>
-            <ExpenseChart />
+            <AccountsChart />
           </div>
         </main>
       </TransactionProvider>

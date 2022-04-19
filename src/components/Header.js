@@ -1,7 +1,10 @@
+import Logo from "../logo.png";
+
 function Header() {
   return (
     <header id="title">
-      <h4>Expense Tracker</h4>
+      <img alt="logo" src={Logo} />
+      <h4>Accountit</h4>
     </header>
   );
 }

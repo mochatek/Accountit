@@ -43,7 +43,7 @@ function NewTransaction() {
 
   return (
     <article id="newTransaction">
-      <h4 className="bdr-b">Add new transaction</h4>
+      <h6 className="bdr-b">NEW TRANSACTION</h6>
 
       <form onSubmit={submitHandler}>
         <div>

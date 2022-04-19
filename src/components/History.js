@@ -7,7 +7,7 @@ function History() {
 
   return (
     <article id="history">
-      <h4 className="bdr-b">History</h4>
+      <h6 className="bdr-b">HISTORY</h6>
 
       {transactions.length ? (
         <ul>

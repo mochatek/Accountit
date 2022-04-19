@@ -16,7 +16,7 @@ const options = {
   responsive: true,
 };
 
-function ExpenseChart() {
+function AccountsChart() {
   const [transactions] = useContext(TransactionContext);
 
   const summary = transactions.reduce((acc, { category, amount }) => {
@@ -41,18 +41,18 @@ function ExpenseChart() {
       {
         label: "Expense",
         data: Object.values(summary).map((key) => key.expense),
-        backgroundColor: "hsla(0, 100%, 50%, 0.5)",
+        backgroundColor: "hsla(0, 90%, 75%, 0.75)",
         stack: "1",
       },
     ],
   };
 
   return (
-    <article id="expenseChart">
-      <h4 className="bdr-b">Expense Chart</h4>
+    <article id="accountsChart">
+      <h6 className="bdr-b">ACCOUNTS CHART</h6>
       <Bar options={options} data={data} />
     </article>
   );
 }
 
-export default ExpenseChart;
+export default AccountsChart;
