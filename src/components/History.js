@@ -7,9 +7,8 @@ function History() {
 
   return (
     <article id="history">
-      <header>
-        <h5 className="bdr-b">History</h5>
-      </header>
+      <h4 className="bdr-b">History</h4>
+
       {transactions.length ? (
         <ul>
           {transactions.map((transaction) => (

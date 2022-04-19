@@ -1,7 +1,7 @@
 function Header() {
   return (
-    <header>
-      <h4 style={{ textAlign: "center" }}>Expense Tracker</h4>
+    <header id="title">
+      <h4>Expense Tracker</h4>
     </header>
   );
 }
