@@ -1,12 +1,12 @@
-import { TransactionContext } from "../contexts/TransactionContext";
+import { AppContext } from "../contexts/AppContext";
 import { useContext } from "react";
 
 function Transaction({ id, name, amount }) {
-  const [, , deleteTransaction] = useContext(TransactionContext);
+  const { deleteTransaction } = useContext(AppContext);
 
   return (
     <li className={amount > 0 ? "income" : "expense"}>
-      <span className="deleteBtn" onClick={() => deleteTransaction(id)}>
+      <span className="delete-btn" onClick={() => deleteTransaction(id)}>
         ✖
       </span>
       {name}

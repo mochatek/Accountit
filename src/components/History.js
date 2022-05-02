@@ -1,9 +1,9 @@
 import Transaction from "./Transaction";
-import { TransactionContext } from "../contexts/TransactionContext";
+import { AppContext } from "../contexts/AppContext";
 import { useContext } from "react";
 
 function History() {
-  const [transactions] = useContext(TransactionContext);
+  const { transactions } = useContext(AppContext);
 
   return (
     <article id="history">
@@ -16,7 +16,7 @@ function History() {
           ))}
         </ul>
       ) : (
-        <p className="info">No transactions yet!</p>
+        <p>No transactions yet!</p>
       )}
     </article>
   );

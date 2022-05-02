@@ -7,7 +7,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { TransactionContext } from "../contexts/TransactionContext";
+import { AppContext } from "../contexts/AppContext";
 import { useContext } from "react";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
@@ -17,7 +17,7 @@ const options = {
 };
 
 function AccountsChart() {
-  const [transactions] = useContext(TransactionContext);
+  const { transactions, closeChartModal } = useContext(AppContext);
 
   const summary = transactions.reduce((acc, { category, amount }) => {
     const amountKey = amount < 0 ? "expense" : "income";
@@ -48,10 +48,13 @@ function AccountsChart() {
   };
 
   return (
-    <article id="accountsChart">
-      <h6 className="bdr-b">ACCOUNTS CHART</h6>
-      <Bar options={options} data={data} />
-    </article>
+    <div id="chart-modal">
+      <article>
+        <button onClick={closeChartModal}>❌</button>
+        <h6 className="bdr-b">ACCOUNTS CHART</h6>
+        <Bar options={options} data={data} />
+      </article>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import { TransactionContext } from "../contexts/TransactionContext";
+import { AppContext } from "../contexts/AppContext";
 import { useState, useRef, useContext } from "react";
 
 function NewTransaction() {
@@ -6,7 +6,7 @@ function NewTransaction() {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
   const inputRef = useRef(null);
-  const [, addTransaction] = useContext(TransactionContext);
+  const { addTransaction } = useContext(AppContext);
 
   function changeHandler(event) {
     switch (event.target.name) {

@@ -1,10 +1,12 @@
 import Balance from "./Balance";
+import ModalButton from "./ModalButton";
 import IncomeExpense from "./IncomeExpense";
-import { TransactionContext } from "../contexts/TransactionContext";
+import AccountsChart from "./AccountsChart";
+import { AppContext } from "../contexts/AppContext";
 import { useContext } from "react";
 
 function Summary() {
-  const [transactions] = useContext(TransactionContext);
+  const { transactions, modal, openChartModal } = useContext(AppContext);
 
   const { totalIncome, totalExpense } = transactions.reduce(
     (acc, cur) => {
@@ -24,8 +26,12 @@ function Summary() {
 
   return (
     <article id="summary">
-      <Balance amount={Math.abs(totalIncome - totalExpense)} />
+      <div>
+        <Balance amount={Math.abs(totalIncome - totalExpense)} />
+        <ModalButton openChartModal={openChartModal} />
+      </div>
       <IncomeExpense income={totalIncome} expense={totalExpense} />
+      {modal && <AccountsChart />}
     </article>
   );
 }

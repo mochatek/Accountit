@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+$primary-blue: hsl(250, 40%, 55%);
+
+%as-columns {
+    display: flex;
+    flex-direction: column;
+}
+
+%center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @extend %center;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Lato';
+    background-image: url("./bg.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#root {
+    box-shadow: 0px 2px 10px 5px lightgrey;
+}
+
+main {
+    @extend %as-columns;
+    width: 33vw;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: hsl(300, 10%, 95%);
+    @media (max-width: 640px) {
+        width: 85vw;
+    }
+}
+
+h6 {
+    margin: 0.75rem 0;
+}
+
+#title {
+    padding: 0.5rem 0;
+    background-color: $primary-blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    h4 {
+        margin: 0;
+    }
+    img {
+        width: 2.5rem;
+        float: left;
+        margin: 0rem 0.5rem;
+    }
+}
+
+.line-2 {
+    * {
+        margin: 0 auto;
+    }
+}
+
+#income-expense {
+    border: 1px solid lightgrey;
+    border-radius: 0.2rem;
+    margin: 0.5rem 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    box-shadow: inset 0px 2px 8px 1px lightgrey;
+    div {
+        @extend .line-2;
+        @extend %as-columns;
+        margin: 1rem 0;
+        &:nth-child(1) {
+            border-right: 2px solid lightgrey;
+        }
+    }
+}
+
+.expense {
+    color: red;
+}
+
+.income {
+    color:green;
+}
+
+.bdr-b {
+    color: $primary-blue;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid lightgrey;
+}
+
+#history {
+    ul {
+        padding-left: 0;
+        margin-left: 0;
+        list-style: none;
+        li {
+            border-radius: 0.2rem;
+            padding: 0.3rem 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid lightgrey;
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            position: relative;
+            box-shadow: 0px 2px 8px 1px lightgrey;
+            .delete-btn {
+                position: absolute;
+                left: -1.9rem;
+                line-height: 0.5rem;
+                height: 100%;
+                top: 0;
+                padding: 0.5rem;
+                background-color: hsl(0, 95%, 75%);
+                opacity: 0;
+                color:white;
+                font-weight: bolder;
+                cursor: pointer;
+                &:hover {
+                    background-color: red;
+                }
+            }
+            &:hover {
+                .delete-btn {
+                    opacity: 1;
+                }
+            }
+            &.expense {
+                color: inherit;
+                border-right: 0.4rem solid red;
+            }
+            &.income {
+                color: inherit;
+                border-right: 0.4rem solid green;
+            }
+        }
+    }
+    p {
+        color: $primary-blue;
+        background-color: hsla(250, 40%, 55%, 0.1);
+        padding: 0.5rem 0;
+        font-size: small;
+        text-align: center;
+    }
+}
+
+form {
+    div {
+        @extend %as-columns;
+        margin: 1rem 0;
+        gap: 0.3rem;
+    }
+    label {
+        font-weight: bold;
+        font-size: smaller;
+    }
+    input, button {
+        padding: 0.5rem;
+        border-radius: 0.2rem;
+        border: 1px solid lightgrey;
+        outline: none;
+    }
+    button {
+        background-color: $primary-blue;
+        color: white;
+        font-weight: bold;
+        &:hover {
+            background-color: hsl(250, 40%, 25%);
+        }
+    }
+}
+
+#chart-modal {
+    @extend %center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    article {
+        width: 50%;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 0.4rem;
+        box-shadow: 0px 0px 20px 1px hsla(0, 0%, 0%, 0.6);
+        position: relative;
+        button {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        @media (max-width: 640px) {
+            width: 85%;
+        }
+    }
+}
+
+
+#summary {
+    div:first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    button{
+        border: none;
+        padding: 0.1rem;
+        font-size: 1.25rem;
+        &:hover {
+            box-shadow: 1px 1px 8px 1px hsla(250, 40%, 55%, 0.5);
+        }
+    }
+}

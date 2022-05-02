@@ -2,27 +2,21 @@ import Header from "./components/Header";
 import Summary from "./components/Summary";
 import History from "./components/History";
 import NewTransaction from "./components/NewTransaction";
-import AccountsChart from "./components/AccountsChart";
-import { TransactionProvider } from "./contexts/TransactionContext";
+import { AppProvider } from "./contexts/AppContext";
 import { Fragment } from "react";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
     <Fragment>
       <Header />
-      <TransactionProvider>
+      <AppProvider>
         <main>
-          <div>
-            <Summary />
-            <History />
-            <NewTransaction />
-          </div>
-          <div>
-            <AccountsChart />
-          </div>
+          <Summary />
+          <History />
+          <NewTransaction />
         </main>
-      </TransactionProvider>
+      </AppProvider>
     </Fragment>
   );
 }
