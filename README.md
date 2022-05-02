@@ -1,6 +1,6 @@
-# Expense Tracker
+# Accountit
 
-Expense tracker app built using React.js (Lumel Project)
+Application for tracking income-expense, built using React.js (Lumel Project)
 
 ```sh
 # Install dependancies
